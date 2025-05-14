@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="calc.css">
+    <title>Calc</title>
+</head>
+
+<body>
+    <div class="calc">
+        <!-- Экран калькулятора -->
+        <div class="calc-screen">
+            <p>0</p>
+        </div>
+
+        <!-- Контейнер для переключателей -->
+        <div class="toggle_wrapper">
+            <!-- Второй переключатель -->
+            <div class="toggle_outer_container second-toggle">
+                <div class="toggle">
+                    <input class="button_one" type="radio" name="second_toggle" id="power_off" />
+                    <input class="button_one" type="radio" name="second_toggle" id="power_on" />
+                </div>
+                <div class="toggle_text right_arrow">▶</div>
+            </div>
+
+            <div class="toggle_outer_container">
+                <div class="toggle_text" id="toggle_text_1">
+                    <span class="left">Г</span>
+                </div>
+                <div class="toggle">
+                    <input class="button_two" type="radio" name="toggle" id="two_two" />
+                    <input class="button_two" type="radio" name="toggle" id="one_two" />
+                </div>
+                <span class="right">Р</span>
+            </div>
+        </div>
+
+        <!-- Заголовок калькулятора -->
+        <div class="title_container">
+            <div class="title">ЭЛЕКТРОНИКА Б3-35</div>
+        </div>
+
+        <!-- Контейнер кнопок калькулятора -->
+        <div class="buttons main_btn_container">
+            <div class="btn-red cf">
+                <div class="symbol">CF</div>
+                <div class="btn_cont">C</div>
+            </div>
+            <div class="btn ac">
+                <div class="symbol">1/X</div>
+                <div class="btn_cont">/-/</div>
+            </div>
+            <div class="btn bracket_open">
+                <div class="btn_cont">arc</div>
+            </div>
+            <div class="btn bracket_close">
+                <div class="btn_cont">ВП</div>
+            </div>
+            <div class="btn f_btn">
+                <div class="btn_cont">F</div>
+            </div>
+            <div class="btn">
+                <div class="symbol">e<sup>x</sup></div>
+                <div class="btn_cont">7</div>
+            </div>
+            <div class="btn">
+                <div class="symbol">10<sup>X</sup></div>
+                <div class="btn_cont">8</div>
+            </div>
+            <div class="btn">
+                <div class="symbol">y<sup>x</sup></div>
+                <div class="btn_cont">9</div>
+            </div>
+            <div class="btn division">
+                <div class="symbol">ЗП</div>
+                <div class="btn_cont">[(</div>
+            </div>
+            <div class="btn sto">
+                <div class="symbol">СП</div>
+                <div class="btn_cont">)]</div>
+            </div>
+            <div class="btn">
+                <div class="symbol">Ln</div>
+                <div class="btn_cont">4</div>
+            </div>
+            <div class="btn">
+                <div class="symbol">Lg</div>
+                <div class="btn_cont">5</div>
+            </div>
+            <div class="btn">
+                <div class="symbol">√</div>
+                <div class="btn_cont">6</div>
+            </div>
+            <div class="btn multiply">
+                <div class="symbol">П×</div>
+                <div class="btn_cont">X</div>
+            </div>
+            <div class="btn rcl">
+                <div class="symbol">П÷</div>
+                <div class="btn_cont">÷</div>
+            </div>
+            <div class="btn">
+                <div class="symbol">sin</div>
+                <div class="btn_cont">1</div>
+            </div>
+            <div class="btn">
+                <div class="symbol">cos</div>
+                <div class="btn_cont">2</div>
+            </div>
+            <div class="btn">
+                <div class="symbol">tg</div>
+                <div class="btn_cont">3</div>
+            </div>
+            <div class="btn minus">
+                <div class="symbol">П+</div>
+                <div class="btn_cont">+</div>
+            </div>
+            <div class="btn eex">
+                <div class="symbol">П-</div>
+                <div class="btn_cont">-</div>
+            </div>
+            <div class="btn">
+                <div class="symbol">р→г</div>
+                <div class="btn_cont">0</div>
+            </div>
+            <div class="btn dot">
+                <div class="symbol">г→р</div>
+                <div class="btn_cont">.</div>
+            </div>
+            <div class="btn plus_minus">
+                <div class="symbol">n!</div>
+                <div class="btn_cont">π</div>
+            </div>
+            <div class="btn plus_minus">
+                <div class="symbol">Х⟷П</div>
+                <div class="btn_cont">⟷</div>
+            </div>
+            <div class="btn equal">
+                <div class="symbol">ИП</div>
+                <div class="btn_cont">=</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="instructions">
+        <a href="manual.pdf" target="_blank">Инструкция (PDF)</a>
+    </div>
+    <script src="calc.js"></script>
+</body>
+
+</html>
+

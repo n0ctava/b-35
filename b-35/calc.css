@@ -1,0 +1,334 @@
+@font-face {
+    font-family: "Electronica";
+    src: url("Electronica.woff") format("woff"), url("Electronica.woff2") format("woff2"), url("Electronica.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "GOST";
+    src: url("GOST.woff") format("woff"), url("GOST.woff2") format("woff2"), url("GOST.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "GOST_A";
+    src: url("GOST2.304-81typeA.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    display: flex;
+    justify-content: center; /* Центрируем содержимое по горизонтали */
+    background-color: #222; /* Примерный светлый фон для контраста */
+    margin: 0;
+    font-family: "Electronica", Arial, sans-serif;
+}
+
+
+.calc {
+    display: flex;
+    flex-direction: column; /* Располагаем содержимое по вертикали */
+    align-items: center; /* Центрируем содержимое по горизонтали */
+    width: 600px;
+    height: auto; /* Измените на auto, чтобы высота адаптировалась под содержимое */
+    border: 1px solid #000;
+    margin-top: 40px; /* Увеличиваем отступ сверху */
+    background: #000;
+    border-radius: 10px;
+    color: #fffafa;
+    font-family: Arial;
+    display: grid;
+    padding: 18px;
+    box-shadow: 8px 8px 12px #fffafa;
+}
+
+.instructions {
+    position: relative;
+    margin-top: 20px; /* Отступ сверху от калькулятора */
+    padding: 20px;
+    font-family: "Electronica", Arial, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    background: linear-gradient(145deg, #fff, #222); /* Градиентный фон для выделения */
+    color: #fff;
+    border-radius: 15px;
+    text-align: center;
+    border: 2px solid #1f8236; /* Яркая граница */
+    max-height: 30px; /* Ограничиваем высоту инструкции */
+    margin-left: 30px;
+}
+
+
+.calc-screen {
+    height: 80px; /* Высота экрана */
+    border-radius: 8px;
+    position: relative;
+    color: #00ff0f;
+    padding: 10px 10px 20px 10px; /* Увеличиваем нижний паддинг */
+    background-color: #013d01;
+    display: flex;
+    justify-items: start;
+    align-items: flex-end; /* Цифры теперь выравниваются по нижнему краю */
+}
+
+    .calc-screen p {
+        font-family: "Electronica";
+        text-align: right;
+        position: absolute;
+        bottom: 15px; /* Сдвигаем текст ближе к низу */
+        left: 10px; /* Корректируем отступ слева */
+        font-size: 4rem;
+        margin: 0;
+        line-height: 1; /* Сбрасываем межстрочный интервал */
+    }
+
+    .calc-screen span {
+    font-family: "Electronica", Arial, sans-serif; /* Используем тот же шрифт, что и для основного текста */
+    font-size: 4rem; /* Совпадает с размером шрифта основного текста */
+    color: #00ff0f; /* Совпадает с цветом основного текста */
+    text-align: right; /* Выравнивание по правому краю */
+    position: absolute; /* Для позиционирования внутри calc-screen */
+    right: 10px; /* Расположение справа */
+    top: 0; /* Расположение по верхнему краю */
+    line-height: 1; /* Устанавливаем межстрочный интервал */
+    margin: 0; /* Убираем отступы */
+}
+
+.title_container {
+    position: relative;
+    height: auto; /* Высота будет определяться содержимым */
+    margin-bottom: 10px; /* Отступ снизу для разделения с окном вывода */
+    grid-row: 1; /* Перемещаем заголовок в самый верх */
+}
+
+.title {
+    position: relative; /* Относительное позиционирование */
+    display: inline-block;
+    left: 0;
+    margin-bottom: 10px; /* Отступ снизу */
+    padding: 5px;
+    background-color: #000; /* Чёрный фон */
+    border: 1px solid #000;
+    color: #fff; /* Белый текст */
+    box-shadow: 0 0 1px 1px black;
+    text-shadow: 1px 1px 1px black, -1px 1px 1px black;
+    font-size: 40px;
+    text-align: center; /* Центрирование текста */
+    width: 100%; /* Растягиваем блок на всю ширину */
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap; /* Позволяет кнопкам переноситься на новую строку */
+    justify-content: space-between; /* Распределяет кнопки по строке */
+    padding: 10px 0; /* Отступ сверху и снизу для кнопок */
+}
+
+.btn {
+    position: relative; /* Устанавливаем относительное позиционирование кнопок */
+    width: calc(20% - 10px);
+    height: 60px;
+    background: #333;
+    color: white;
+    text-align: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+    border: 1px solid #000;
+    outline: none;
+    user-select: none;
+    margin: 5px 0;
+    border-radius: 5px;
+    margin-top: 30px; /* Увеличение верхнего отступа для кнопок */
+}
+
+.btn_cont {
+    height: 39px; /* Увеличиваем высоту кнопки */
+    padding: 10px 0; /* Паддинг для вертикальных отступов */
+}
+
+.symbol {
+    position: absolute; /* Абсолютное позиционирование относительно кнопки */
+    top: -30px; /* Сдвигаем символ вверх */
+    left: 50%; /* Центрируем по горизонтали относительно кнопки */
+    transform: translateX(-50%); /* Выравниваем центр символа по центру кнопки */
+    font-size: 1.2rem; /* Размер символа */
+    color: #fff; /* Цвет символа */
+    font-weight: bold;
+    pointer-events: none; /* Отключаем взаимодействие */
+}
+
+
+/* Настройки для первой строки кнопок, чтобы убрать дополнительные символы */
+.buttons > :nth-child(-n+4) + .symbol {
+    display: none; /* Скрыть символы над кнопками в первой строке */
+}
+
+.btn:hover {
+    background: #444; /* Изменение цвета при наведении */
+}
+
+.btn:active {
+    background: #222; /* Изменение цвета при нажатии */
+}
+
+.btn-red {
+    position: relative; /* Устанавливаем относительное позиционирование кнопок */
+    width: calc(20% - 10px);
+    height: 60px;
+    background: red;
+    color: white;
+    text-align: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+    border: 1px solid #000;
+    outline: none;
+    user-select: none;
+    margin: 5px 0;
+    border-radius: 5px;
+    margin-top: 30px; /* Увеличение верхнего отступа для кнопок */
+}
+
+.btn-red_cont {
+    height: 39px; /* Увеличиваем высоту кнопки */
+    padding: 10px 0; /* Паддинг для вертикальных отступов */
+}
+
+.btn-red:hover {
+    background: #ff4343; /* Изменение цвета при наведении */
+}
+
+.btn-red:active {
+    background: #b50000; /* Изменение цвета при нажатии */
+}
+
+.symbol {
+    position: absolute; /* Абсолютное позиционирование относительно кнопки */
+    top: -30px; /* Сдвигаем символ вверх */
+    left: 50%; /* Центрируем по горизонтали относительно кнопки */
+    transform: translateX(-50%); /* Выравниваем центр символа по центру кнопки */
+    font-size: 1.2rem; /* Размер символа */
+    color: #fff; /* Цвет символа */
+    font-weight: bold;
+    pointer-events: none; /* Отключаем взаимодействие */
+}
+
+
+/* Общее правило для элементов управления, чтобы легко управлять общей стилизацией */
+.btn_memory_container,
+.btn_third_container {
+    display: grid;
+    grid-template-columns: repeat(2, 92px);
+    gap: 10px; /* Отступ между колонками */
+}
+
+.equal {
+    width: calc(20% - 10px); /* Другое значение для кнопки равенства */
+    height: 60px; /* Высота кнопки равенства */
+}
+
+.toggle_wrapper {
+    display: flex;
+    justify-content: space-between; /* Распределяем переключатели по краям */
+    margin-top: 10px;
+}
+
+.toggle_outer_container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Распределение пространства между элементами */
+    border: 1px solid #000;
+    box-shadow: 0px 0px 1px 1px black;
+    padding: 0 15px;
+    width: auto;
+    height: 60px;
+    background-color: #000;
+    margin-right: 20px;
+    border-radius: 5px;
+}
+
+.toggle_text {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Размещаем элементы по краям */
+    width: 10%; /* Занимаем всю ширину */
+    font-size: 1rem;
+}
+
+
+.left {
+    order: 1; 
+    margin-right: 10px;
+}
+
+.right {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Размещаем элементы по краям */
+    width: 10%; /* Занимаем всю ширину */
+    font-size: 1rem;
+    order: 2;
+    margin-left: auto; /* Отправляем в правый конец */
+}
+
+.right_arrow {
+    margin-left: 10px; /* Отступ для стрелки справа */
+    font-size: 1rem;
+}
+
+.toggle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #333;
+    height: 25px;
+    width: 50px;
+    margin-left: 10px;
+}
+
+
+
+input {
+    height: 12px;
+    width: 24px;
+    appearance: none;
+    background-color: #535856;
+    opacity: 0;
+}
+
+    input:hover {
+        cursor: pointer;
+    }
+
+
+#one_three {
+    opacity: 1;
+}
+
+#one_two {
+    opacity: 1;
+}
+
+#power_off {
+    opacity: 0;
+}
+
+#power_on {
+    opacity: 1;
+}
+
+
+/* Стиль для радиокнопок */
+input[type="radio"] {
+    height: 12px;
+    width: 24px;
+    opacity: 0;
+    cursor: pointer; /* Курсор указывает на интерактивность */
+}
+
+    /* Стиль для активного состояния радиокнопок */
+    input[type="radio"]:checked + .toggle {
+        background-color: #666; /* Упрощение фона при выборе */
+    }
